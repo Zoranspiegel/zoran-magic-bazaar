@@ -10,4 +10,6 @@ router.get('/:id', ctr.readProductById);
 
 router.put('/:id', ctr.updateProduct);
 
+router.delete('/delete/:id', ctr.logicalDeleteProduct);
+
 module.exports = router;
