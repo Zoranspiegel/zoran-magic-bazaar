@@ -27,6 +27,10 @@ const ProductSchema = mongoose.Schema({
   category: {
     type: String,
     required: true
+  },
+  deleted: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: false,
