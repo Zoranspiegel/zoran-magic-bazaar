@@ -1,0 +1,21 @@
+:root {
+  font-family: Consolas;
+  --primary-background-color: #000;
+  --primary-text-color: rgb(24, 216, 24);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+}
+
+h1,h2,h3,h4,h5, p {
+  margin: 0;
+}
