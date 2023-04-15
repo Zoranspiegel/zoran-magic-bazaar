@@ -12,5 +12,6 @@ router.put('/:id', ctr.updateProduct);
 router.put('/restore/:id', ctr.restoreProduct);
 
 router.delete('/delete/:id', ctr.logicalDeleteProduct);
+router.delete('/destroy/:id', ctr.destroyProduct);
 
 module.exports = router;

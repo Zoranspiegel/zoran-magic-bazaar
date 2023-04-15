@@ -4,6 +4,7 @@ const updateProduct = require('./updateProduct');
 const readProductById = require('./readProductById');
 const logicalDeleteProduct = require('./logicalDeleteProduct');
 const restoreProduct = require('./restoreProduct');
+const destroyProduct = require('./destroyProduct');
 
 module.exports = {
   createProduct,
@@ -11,5 +12,6 @@ module.exports = {
   updateProduct,
   readProductById,
   logicalDeleteProduct,
-  restoreProduct
+  restoreProduct,
+  destroyProduct
 };
