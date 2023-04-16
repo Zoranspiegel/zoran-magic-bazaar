@@ -3,7 +3,7 @@
   --primary-background-color: #000;
   --primary-text-color: rgb(54, 190, 0);
   --primary-border: 3px solid rgb(54, 190, 0);
-  --primary-radius: 6px;
+  --primary-radius: 10px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Card = ({ product }) => {
   return (
     <StyledCard>
-      <NavLink className='link'>
+      <NavLink className='link' to={`/details/${product._id}`}>
         <div className='shell'>
           <div className='title'>
             <h3>{product.name}</h3>
@@ -38,6 +38,14 @@ const StyledCard = styled.div`
     height: 380px;
   }
 
+  .shell:hover {
+    border-color: yellow;
+    h3 {
+      color: yellow;
+    }
+    transform: translateY(-5px);
+  }
+
   .title {
     display: flex;
     justify-content: center;
@@ -55,5 +63,9 @@ const StyledCard = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 10px;
+  }
+
+  .body span {
+    color: yellow;
   }
 `;

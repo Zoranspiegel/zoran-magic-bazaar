@@ -1,7 +1,9 @@
 import {
   GET_PRODUCTS,
   PRODUCTS_PENDING,
-  PRODUCTS_ERROR
+  PRODUCTS_ERROR,
+  GET_DETAILS,
+  CLEAN_DETAILS
 } from '../actions';
 
 const initialState = {
@@ -9,7 +11,8 @@ const initialState = {
   products_status: {
     loading: 'idle',
     error: null
-  }
+  },
+  details: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -30,6 +33,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         products_status: { loading: 'rejected', error: action.payload }
       };
+    case GET_DETAILS:
+      return { ...state, details: action.payload };
+    case CLEAN_DETAILS:
+      return { ...state, details: {} };
     default:
       return { ...state };
   }

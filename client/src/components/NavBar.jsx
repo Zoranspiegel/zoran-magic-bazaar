@@ -1,9 +1,12 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <h2>NavBar</h2>
+      <NavLink to='/home' className='link'>
+        <h2>Home</h2>
+      </NavLink>
     </StyledNavBar>
   );
 };
@@ -22,4 +25,13 @@ const StyledNavBar = styled.div`
   border-radius: var(--primary-radius);
   background-color: black;
   padding: 10px;
+
+  .link {
+    text-decoration: none;
+    color: var(--primary-text-color);
+  }
+
+  .link:hover {
+    color: yellow;
+  }
 `;
