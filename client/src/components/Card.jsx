@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-const Card = () => {
+const Card = ({ product }) => {
   return (
     <StyledCard>
       <NavLink className='link'>
         <div className='shell'>
           <div className='title'>
-            <h3>Card</h3>
+            <h3>{product.name}</h3>
           </div>
+          <img src={product.img} alt={`${product.name} image`} />
           <div className='body'>
-            <p>Price: $<span>999</span></p>
-            <p>Stock: <span>99</span></p>
+            <p>Price: <span>${product.price}</span></p>
+            <p>Stock: <span>{product.inStock}</span></p>
           </div>
         </div>
       </NavLink>
@@ -34,13 +35,19 @@ const StyledCard = styled.div`
     border: var(--primary-border);
     border-radius: var(--primary-radius);
     width: 300px;
-    height: 300px;
+    height: 380px;
   }
 
   .title {
     display: flex;
     justify-content: center;
+    text-align: center;
     padding: 10px;
+  }
+
+  img {
+    object-fit: cover;
+    overflow: hidden;
   }
 
   .body {

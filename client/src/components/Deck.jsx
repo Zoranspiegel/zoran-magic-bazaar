@@ -1,22 +1,13 @@
 import styled from 'styled-components';
-
+import { useSelector } from 'react-redux';
 import Card from './Card';
 
 const Deck = () => {
+  const products = useSelector(state => state.products);
+
   return (
     <StyledDeck>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {products?.map(p => <Card key={p._id} product={p} />)}
     </StyledDeck>
   );
 };
