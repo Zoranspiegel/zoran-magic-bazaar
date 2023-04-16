@@ -3,11 +3,14 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetails, cleanDetails } from '../redux/actions';
+import Loading from './Loading';
+import Error from './Error';
 
 const Details = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const details = useSelector(state => state.details);
+  const status = useSelector(state => state.details_status);
 
   useEffect(() => {
     dispatch(getDetails(params.id));
@@ -21,18 +24,21 @@ const Details = () => {
 
   return (
     <StyledDetails>
-      <div className='shell'>
-        <div className='title'>
-          <h1>{details.name && details.name}</h1>
-        </div>
-        <img src={details.name && details.img} alt={`${details.name && details.name} image`} />
-        <div className='body'>
-          <h3>{details.category}</h3>
-          <p>{details.name && details.description}</p>
-          <p>Price: <span>${details.name && details.price}</span></p>
-          <p>Stock: <span>{details.name && details.inStock}</span></p>
-        </div>
-      </div>
+      {status.loading === 'pending' && <Loading />}
+      {status.loading === 'rejected' && <Error error={status.error} />}
+      {status.loading === 'succeeded' &&
+        <div className='shell'>
+          <div className='title'>
+            <h1>{details.name}</h1>
+          </div>
+          <img src={details.img} alt={`${details.name} image`} />
+          <div className='body'>
+            <h3>{details.category}</h3>
+            <p>{details.description}</p>
+            <p>Price: <span>${details.price}</span></p>
+            <p>Stock: <span>{details.inStock}</span></p>
+          </div>
+        </div>}
     </StyledDetails>
   );
 };

@@ -3,6 +3,8 @@ export const PRODUCTS_PENDING = 'PRODUCTS_PENDING';
 export const PRODUCTS_ERROR = 'PRODUCTS_ERROR';
 export const GET_DETAILS = 'GET_DETAILS';
 export const CLEAN_DETAILS = 'CLEAN_DETAILS';
+export const DETAILS_PENDING = 'DETAILS_PENDING';
+export const DETAILS_ERROR = 'DETAILS_ERROR';
 
 const API_URL = 'http://localhost:3001/api';
 
@@ -18,11 +20,14 @@ export const getProducts = () => (dispatch) => {
 };
 
 export const getDetails = (id) => (dispatch) => {
+  dispatch({ type: DETAILS_PENDING });
   fetch(`${API_URL}/products/${id}`)
     .then(r => {
+      if (!r.ok) throw new Error('No response from server');
       return r.json();
     })
-    .then(rJSON => dispatch({ type: GET_DETAILS, payload: rJSON }));
+    .then(rJSON => dispatch({ type: GET_DETAILS, payload: rJSON }))
+    .catch(error => dispatch({ type: DETAILS_ERROR, payload: error.message }));
 };
 
 export const cleanDetails = () => {

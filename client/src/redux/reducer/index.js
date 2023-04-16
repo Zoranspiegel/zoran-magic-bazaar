@@ -3,7 +3,9 @@ import {
   PRODUCTS_PENDING,
   PRODUCTS_ERROR,
   GET_DETAILS,
-  CLEAN_DETAILS
+  CLEAN_DETAILS,
+  DETAILS_PENDING,
+  DETAILS_ERROR
 } from '../actions';
 
 const initialState = {
@@ -12,7 +14,11 @@ const initialState = {
     loading: 'idle',
     error: null
   },
-  details: {}
+  details: {},
+  details_status: {
+    loading: 'idle',
+    error: null
+  }
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -34,7 +40,21 @@ const rootReducer = (state = initialState, action) => {
         products_status: { loading: 'rejected', error: action.payload }
       };
     case GET_DETAILS:
-      return { ...state, details: action.payload };
+      return {
+        ...state,
+        details: action.payload,
+        details_status: { ...state.details_status, loading: 'succeeded' }
+      };
+    case DETAILS_PENDING:
+      return {
+        ...state,
+        details_status: { ...state.details_status, loading: 'pending' }
+      };
+    case DETAILS_ERROR:
+      return {
+        ...state,
+        details_status: { loading: 'rejected', error: action.payload }
+      };
     case CLEAN_DETAILS:
       return { ...state, details: {} };
     default:
