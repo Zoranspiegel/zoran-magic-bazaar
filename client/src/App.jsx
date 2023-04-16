@@ -1,7 +1,9 @@
+import NavBar from './components/NavBar';
+
 const App = () => {
   return (
     <div>
-      App
+      <NavBar />
     </div>
   );
 };
