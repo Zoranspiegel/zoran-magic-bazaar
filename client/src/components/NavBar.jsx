@@ -11,6 +11,7 @@ const NavBar = () => {
 export default NavBar;
 
 const StyledNavBar = styled.div`
+  z-index: 9999;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -19,5 +20,6 @@ const StyledNavBar = styled.div`
   right: 5px;
   border: var(--primary-border);
   border-radius: var(--primary-radius);
+  background-color: black;
   padding: 10px;
 `;
