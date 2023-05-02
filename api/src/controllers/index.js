@@ -5,6 +5,7 @@ const readProductById = require('./readProductById');
 const logicalDeleteProduct = require('./logicalDeleteProduct');
 const restoreProduct = require('./restoreProduct');
 const destroyProduct = require('./destroyProduct');
+const createManyProducts = require('./createManyProducts');
 
 module.exports = {
   createProduct,
@@ -13,5 +14,6 @@ module.exports = {
   readProductById,
   logicalDeleteProduct,
   restoreProduct,
-  destroyProduct
+  destroyProduct,
+  createManyProducts
 };

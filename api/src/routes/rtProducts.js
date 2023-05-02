@@ -4,6 +4,7 @@ const ctr = require('../controllers/index');
 const router = Router();
 
 router.post('/', ctr.createProduct);
+router.post('/many', ctr.createManyProducts);
 
 router.get('/', ctr.readProducts);
 router.get('/:id', ctr.readProductById);
